@@ -57,7 +57,14 @@ export const PAStyle= StyleSheet.create({
           flex: 2,
           justifyContent: 'space-evenly',
         },
-        
+        heading:{
+          marginTop:10,
+          textAlign:'center',    
+          fontWeight:'bold',
+          fontSize: 20,
+          lineHeight:24,
+          color: '#FFF6E0',
+        },
         boldHeading: {
           fontSize: 50,
           color: colors.darkOrange,
@@ -187,7 +194,7 @@ export const PAStyle= StyleSheet.create({
         },
         inputWrapper: {
           backgroundColor: 'transparent',
-          marginTop: 10,
+          marginTop: 6,
           padding: 3,
           marginLeft: 'auto',
           marginRight: 'auto',
