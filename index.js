@@ -85,16 +85,16 @@ export default function FirstPage(){
                             component={BankDetailsConfirm}
                             options={{ headerShown: false }}
                         />  */}
-                        <Stack.Screen
+                        {/* <Stack.Screen
                             name='BankDocumentUploadScreen'
                             component={BankDocumentUpload}
                             options={{ headerShown: false }}
-                        />
-                        {/* <Stack.Screen
+                        /> */}
+                        <Stack.Screen
                             name='TextDatePicker'
                             component={TextDatePicer}
                             options={{ headerShown: false }}
-                        />  */}
+                        /> 
                     </Stack.Navigator>
                 </NavigationContainer>
             </PaperProvider>

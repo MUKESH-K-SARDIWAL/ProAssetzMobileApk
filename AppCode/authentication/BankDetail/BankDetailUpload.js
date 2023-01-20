@@ -6,9 +6,10 @@ import * as yup from 'yup';
 import _ from 'lodash';
 import { Caption, Dialog, Snackbar,Subheading,TextInput } from 'react-native-paper';
 import axios from 'axios';
-import ImagePicker from 'react-native-image-crop-picker';
-
-const formSchema = yup.object({
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import StyledText from '../../shared/StyleText';
+  
+  const formSchema = yup.object({
     
   });
 
@@ -96,81 +97,16 @@ export const BankDocumentUpload=(props)=>{
     })
   }
 
-  const pickImage = (type, location) => {
+  const pickImage =async (type, location) => {
+    alert(type,location)
     if(location=='cancelCheque'){
-        if (type === 'camera') {
-            ImagePicker.openCamera({
-                cropping: true,
-                freeStyleCropEnabled: true,
-            }).then((image) => {
-                console.log(image);
-                switch (location) {
-                case 'panCard':
-                    setPanCard(image.path);
-                    break;
-                case 'cancelCheque':
-                    setCancelCheque(image.path);
-                    break;
-                }
-                hideDialog();
-            });
-        }
-        if (type === 'gallery') {
-        ImagePicker.openPicker({
-            cropping: true,
-            freeStyleCropEnabled: true,
-        }).then((image) => {
-            console.log(image);
-            switch (location) {
-            case 'panCard':
-                setPanCard(image.path);
-                break;
-            case 'cancelCheque':
-                setCancelCheque(image.path);
-                break;
-            }
-            hideDialog();
-        });
-        }
-
+      
     }
-        if(location=='panCard'){
-            if (type === 'camera') {
-            ImagePicker.openCamera({
-                cropping: true,
-                freeStyleCropEnabled: true,
-            }).then((image) => {
-                console.log(image);
-                switch (location) {
-                case 'panCard':
-                    setPanCard(image.path);
-                    break;
-                case 'cancelCheque':
-                    setCancelCheque(image.path);
-                    break;
-                }
-                hideDialog();
-            });
-            }
-            if (type === 'gallery') {
-            ImagePicker.openPicker({
-                cropping: true,
-                freeStyleCropEnabled: true,
-            }).then((image) => {
-                console.log(image);
-                switch (location) {
-                case 'panCard':
-                    setPanCard(image.path);
-                    break;
-                case 'cancelCheque':
-                    setCancelCheque(image.path);
-                    break;
-                }
-                hideDialog();
-            });
-            }
-
-        }
+    if(location=='panCard'){
+        launchImageLibrary(options, callback)
+        const result = await launchImageLibrary(options);
+        console.log(result)
+    }
     
   };
 

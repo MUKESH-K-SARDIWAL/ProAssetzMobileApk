@@ -1,52 +1,35 @@
 import React, { useState } from 'react'
-import { Button, Platform, Text, View } from 'react-native'
-import DateTimePicker, { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
+import { Button,  View ,PermissionsAndroid,Image} from 'react-native'
 import { PAStyle } from '../../shared/ProAssetzCSS/ProAssetzcss';
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 
 export default function TextDatePicer(){
-    const [date, setDate] = useState(new Date(1598051730000));
-    const [mode, setMode] = useState('date');
-    const [show, setShow] = useState(false);
-  
-    const onChange = (event, selectedDate) => {
-      const currentDate = selectedDate;
-      setShow(false);
-      setDate(currentDate);
-    };
-  
-    const showMode = (currentMode) => {
-      if (Platform.OS === 'android') {
-        setShow(false);
-        // for iOS, add a button that closes the picker
+   const [cameraPhoto, setCameraPhoto]=useState()
+    let options ={
+      saveToPhotos:true,
+      mediaType:'photo'
+    }
+    const selectImageFormGallery=async ()=>{
+      const granted=await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.CAMERA,);
+      if (granted===PermissionsAndroid.RESULTS.GRANTED){
+         const result = await launchCamera(options)
+         setCameraPhoto(result.assets[0].uri)
       }
-      setMode(currentMode);
-    };
-  
-    const showDatepicker = () => {
-      showMode('date');
-    };
-  
-    const showTimepicker = () => {
-      showMode('time');
-    };
-  
+    }
 
     return (
       <View style={[PAStyle.outerContainer,PAStyle.backGround]}>
             <View>
-            <Button onPress={showDatepicker} title="Show date picker!" />
-      <Button onPress={showTimepicker} title="Show time picker!" />
-      <Text>selected: {date.toLocaleString()}</Text>
-            {show && (
-                <DateTimePicker
-                testID="dateTimePicker"
-                value={date}
-                mode={mode}
-                is24Hour={true}
-                onChange={onChange}
-                />
-            )}
+            <Button  title="OPEN CAMERA" 
+            onPress={()=>{
+              selectImageFormGallery()
+              console.log('press');
+              
 
+            }}
+            style={{width:200}}
+            />
+            <Image source={{uri:cameraPhoto}} />
             </View>
       </View>
     )
