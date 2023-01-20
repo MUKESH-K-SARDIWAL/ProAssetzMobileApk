@@ -53,8 +53,9 @@ export const PAStyle= StyleSheet.create({
           color:colors.white
         },
         innerContainer: {
-          padding: 40,
-          flex: 2,
+          paddingVertical: 0,
+          paddingHorizontal:20,
+          flex: 1,
           justifyContent: 'space-evenly',
         },
         heading:{
@@ -66,7 +67,7 @@ export const PAStyle= StyleSheet.create({
           color: '#FFF6E0',
         },
         boldHeading: {
-          fontSize: 50,
+          fontSize: 43,
           color: colors.darkOrange,
         },
         logo: {
@@ -78,6 +79,14 @@ export const PAStyle= StyleSheet.create({
         
         regularHeading: {
           fontSize: 32,
+          color:colors.white,
+        },
+        regularHeading2: {
+          fontSize: 32,
+          color:colors.white,
+        },
+        regularHeading3: {
+          fontSize: 20,
           color:colors.white,
         },
         Submitbutton:{
@@ -99,6 +108,16 @@ export const PAStyle= StyleSheet.create({
           borderRadius:10,
           paddingHorizontal:10,
           marginTop:60,
+          marginLeft:'auto',
+          marginRight:'auto',
+
+        },
+        EnableFactorButton:{
+          backgroundColor:colors.yellowLg,
+          width:'60%',
+          marginBottom:40,
+          borderRadius:10,
+          paddingHorizontal:10,
           marginLeft:'auto',
           marginRight:'auto',
 

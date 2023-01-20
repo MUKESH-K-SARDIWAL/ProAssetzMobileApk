@@ -41,7 +41,7 @@ function LoginScreen() {
             if (response?.data?.otp_type == 'google') {
               user.email = formData.email
               user.password = formData.password
-            //   navigation.navigate('TwoFactorAuthQRScreen', { formData, response });
+                 navigation.navigate('TwoFactorAuthQRScreen', { formData, response });
               setUserData({ email: formData.email, password: formData.password })
               storeData();
             } else if (response.data.otp_type == 'email') {
