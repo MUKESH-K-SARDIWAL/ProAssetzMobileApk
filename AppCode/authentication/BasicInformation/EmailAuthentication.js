@@ -21,21 +21,24 @@ export const EmailAuthentication=(props)=> {
     setValue,
   });
   const handleVerifyOtp = (otp) => {
-    console.log('propssss',props)
-    console.log('otp',otp)
+    // console.log('propssss',props)
+    // console.log('otp',otp)
     const reqBody = {
-      ...props.route.params.formData,
+      // ...props.route.params.formData,
+      email: "9kumarmukesh9@gmail.com",
+      password: "9hsekum9@M",
       email_otp: otp,
     };
     // console.warn('weiruhiweuhwer',...props?.route?.params?.formData,)
-    console.log('make req with', reqBody);
+   // console.log('make req with', reqBody);
     axios
       .post('https://www.proassetz.com/api/v1/user-login/', reqBody)
       .then(function (response) {
-        console.log(response);
         if (response.data.otp_type === 'google') {
-          let qrData = { ...response.data, ...reqBody };
-          navigation.navigate('TwoFactorAutheticationScreen', { qrData });
+
+            let qrData = { ...response.data, ...reqBody };
+            console.log('qwtuiopoiuytrewqwertyuiopoiuytrewqwertyui',qrData)
+            //navigation.navigate('TwoFactorAutheticationScreen', { qrData });
         }
       })
       .catch(function (error) {

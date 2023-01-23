@@ -37,15 +37,16 @@ function LoginScreen() {
         axios
           .post(apiRoutes.user_login, formData)
           .then(function (response) {
-            console.log('response ==>', response.data);
+            //console.log('response ==>', response.data);
             if (response?.data?.otp_type == 'google') {
               user.email = formData.email
               user.password = formData.password
-                 navigation.navigate('TwoFactorAuthQRScreen', { formData, response });
               setUserData({ email: formData.email, password: formData.password })
               storeData();
+                 navigation.navigate('TwoFactorAutheticationScreen', { formData, response });
+              
             } else if (response.data.otp_type == 'email') {
-                console.log(response)
+               // console.log(response)
                 storeData({ email: formData.email, password: formData.password });
                     navigation.navigate('EmailAuthenticationScreen', { formData });
                 }

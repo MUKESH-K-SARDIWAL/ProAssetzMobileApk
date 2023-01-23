@@ -23,6 +23,8 @@ import { Provider as PaperProvider } from 'react-native-paper';
 import { BankDocumentUpload } from './AppCode/authentication/BankDetail/BankDetailUpload';
 import TwoFactorAuth from './AppCode/authentication/Two-Factor-Authentication/firstPage';
 import TwoFactorAuthQR from './AppCode/authentication/Two-Factor-Authentication/twoFactorQR';
+import { Home } from './AppCode/main/Home';
+import { MyWatchList } from './AppCode/main/watchlist';
 const Stack=createNativeStackNavigator()
 
 export default function FirstPage(){
@@ -47,11 +49,11 @@ export default function FirstPage(){
                             component={LoginScreen}
                             options={{ headerShown: false }}
                         /> */}
-                        <Stack.Screen
+                        {/* <Stack.Screen
                             name="EmailAuthenticationScreen"
                             component={EmailAuthentication}
                             options={{ headerShown: false }}
-                        />
+                        /> */}
                         {/* <Stack.Screen
                             name="CreateAccountScreen"
                             component={CreateAccountScreen}
@@ -62,11 +64,11 @@ export default function FirstPage(){
                             component={DeclerationScreen}
                             options={{ headerShown: false }}
                         /> */}
-                        <Stack.Screen
+                        {/* <Stack.Screen
                             name='VerifyEmailScreen'
                             component={VerifyEmail}
                             options={{ headerShown: false }}
-                        /> 
+                        />  */}
                         {/* <Stack.Screen
                             name='KYCWelcomeScreen'
                             component={KYCWelcome}
@@ -97,16 +99,26 @@ export default function FirstPage(){
                             component={TwoFactorAuth}
                             options={{ headerShown: false }}
                         /> */}
-                        <Stack.Screen
-                            name='TwoFactorAuthQRScreen'
+                        {/* <Stack.Screen
+                            name='TwoFactorAutheticationScreen'
                             component={TwoFactorAuthQR}
                             options={{ headerShown: false }}
-                        />
+                        /> */}
                         {/*  <Stack.Screen
                              name='TextDatePicker'
                              component={TextDatePicer}
                              options={{ headerShown: false }}
                          />  */}
+                         {/* <Stack.Screen
+                             name='HomeScreen'
+                             component={Home}
+                             options={{ headerShown: false }}
+                         /> */}
+                         <Stack.Screen
+                             name='WatchListScreen'
+                             component={MyWatchList}
+                             options={{ headerShown: false }}
+                         />
                     </Stack.Navigator>
                 </NavigationContainer>
             </PaperProvider>

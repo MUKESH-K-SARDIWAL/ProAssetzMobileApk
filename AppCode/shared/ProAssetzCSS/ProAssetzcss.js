@@ -522,5 +522,41 @@ export const PAStyle= StyleSheet.create({
     mb2: {
       marginBottom: 10,
     },
+    swiperList:{ 
+      marginTop: 30, height: 140, alignItems: 'center', justifyContent: 'center' 
+  },
+  child: {
+     width, justifyContent: 'center' 
+  },
+  text: { 
+      fontSize: width * 0.2, textAlign: 'center' 
+  },
+  container:{
+      backgroundColor: '#212121', flex: 1, padding: 8
+  },
+  outerDiv:{
+      flexDirection: 'row', alignItems: 'center' 
+  },
+  ProfileNameWord:{
+   backgroundColor: colors.grayMed, height: 30, width: 30, borderRadius: 15, justifyContent: 'center', alignItems: 'center',marginBottom:2
+  },
+  NameText:{ 
+     fontSize: 16, color: '#FFFFFF', 
+  },
+  welcomeword:{
+      fontSize: 16,  color: '#FFF6E0', marginLeft: 10 
+  },
+  cardOuterDiv:{
+      marginHorizontal: '4%', marginTop: 30, borderRadius: 6, borderColor: '#545454', borderWidth: 1, paddingVertical: 10, paddingHorizontal: 10
+  },
+  outerCardDiv:{
+       marginHorizontal: 8, marginTop: 8, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }
+      ,
+  cardDiv:{ 
+      flexDirection: 'row', marginHorizontal: 8, alignItems: 'center', justifyContent: 'space-between', marginTop: 16, height: 1, backgroundColor: '#FFA629' }    ,
+  fontStyle:{ 
+      fontSize: 12,  color: '#878787' }
+ ,boxStyle:{
+   flexDirection: 'row', marginHorizontal: 8, alignItems: 'center', justifyContent: 'space-between', marginTop: 14 }
 
 })

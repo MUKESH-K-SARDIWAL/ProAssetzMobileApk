@@ -16,9 +16,9 @@ import { colors } from '../../constants/colors';
 import { useNavigation } from '@react-navigation/native';
 import { Button, Snackbar } from 'react-native-paper';
 import { Linking, Platform } from 'react-native';
-// import QRCode from 'qrcode';
+ import QRCode from 'qrcode';
 import { SvgXml, SvgUri } from 'react-native-svg';
-import QRCode from 'react-native-qrcode-svg';
+//import QRCode from 'react-native-qrcode-svg';
 // import Clipboard from '@react-native-community/react-native-clipboard';
 
 const generateQRCode = async (secret) => {
@@ -26,10 +26,14 @@ const generateQRCode = async (secret) => {
 };
 const TwoFactorAuthQR = (props) => {
   const navigation = useNavigation();
-  const { raw_secret_key,secret_key, email, password } = props.route.params.qrPageData;
+  console.log('=====> my props' ,props)
+  // const { raw_secret_key,secret_key, email, password } = props.route.params.qrPageData;
+  let  raw_secret_key = 'asddasds',
+       secret_key = 'JX7YQQNKU4F77YY7',
+       email = '9kumarmukesh9@gmail.com',
+       password = '9hsekum9@M';
   const formData = { email, password, raw_secret_key };
-  console.log(props?.route?.params, 'qrdata');
-  const iosUrl = 'itms-apps://apps.apple.com/US/app/id388497605';
+  //const iosUrl = 'itms-apps://apps.apple.com/US/app/id388497605';
   const androidUrl =
     'https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2';
     //const googleAuthUrl = `otpauth://totp/PROASSETZ:${email}?secret=${secret}&issuer=PROASSETZ`;
@@ -42,7 +46,7 @@ const TwoFactorAuthQR = (props) => {
     'otpauth://totp/PROASSETZ-ranomander712%40gmail.com?secret=JX7YQQNKU4F77YY7';
       function openGoogleAuth() {
         Linking.openURL(googleAuthUrl).catch(async () => {
-          if (Platform.OS === 'ios') {
+          if (Platform.OS === 'android') {
             const supported = await Linking.canOpenURL(iosUrl);
             supported && (await Linking.openURL(iosUrl));
           } else if (Platform.OS === 'android') {
@@ -53,23 +57,23 @@ const TwoFactorAuthQR = (props) => {
       }
   const [qrImageUri, setQrImageUri] = React.useState('');
   React.useEffect(() => {
-    // generateQRCode(googleAuthUrlTest)
-    //   .then((res) => {
-    //     setQrImageUri(res);
-    //   })
-    //   .catch((error) => {
-    //     alert(error);
-    //   });
-    // QRCode.toDataURL(googleAuthUrlTest, { type: 'data' }, (err, url) => {
-    //   setQrImageUri(url);
-    //   // let a = url.toString()
-    //   alert(err)
-    // });
-    // QRCode.toString('test', function (err, url) {
-    //   setQrImageUri(url);
-    //   // let a = url.toString()
-    //   // alert(url);
-    // });
+    generateQRCode(googleAuthUrlTest)
+      .then((res) => {
+          setQrImageUri(res);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+    QRCode.toDataURL(googleAuthUrlTest, { type: 'data' }, (err, url) => {
+      setQrImageUri(url);
+      // let a = url.toString()
+      alert(err)
+    });
+    QRCode.toString('test', function (err, url) {
+      setQrImageUri(url);
+      // let a = url.toString()
+      // alert(url);
+    });
   }, []);
   const [snackMssg, setSnackMssg] = React.useState('');
 
