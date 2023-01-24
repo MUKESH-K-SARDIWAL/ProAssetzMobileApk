@@ -17,7 +17,6 @@ import {
     Cursor,
     useBlurOnFulfill,
     useClearByFocusCell,
-    MaskSymbol,
     isLastFilledCell,
   } from 'react-native-confirmation-code-field';
   import { Button, Snackbar } from 'react-native-paper';
@@ -120,35 +119,35 @@ import {
     }, []);
     const [verified, setVerified] = React.useState(false);
     const [otpDone, setOtpDone] = React.useState(false);
-    const handleVerifyTwoFacOTP = (otp) => {
-      const nokey = { email: formData.email, password: formData.password };
-      let reqBody = {
-        ...nokey,
-        google_otp: otp,
-      };
-      console.log('insisde 2fact otp', reqBody);
-      axios
-        .post('https://www.proassetz.com/api/v1/user-login/', reqBody)
-        .then(async function (response) {
-          console.log(response);
-          const auth = { 
-            token: response.data.data.token, // Authentication token
-          };
-          console.log(auth, 'otpage');
-          await AsyncStorage.setItem('auth', JSON.stringify(auth));
-          setVerified(true);
-          if (raw_secret_key === undefined) { navigation.navigate("FBDScreen") }
-        })
-        .catch(function (error) {
-          // alert(JSON.stringify(error.response.data.message));
-          if (error.response.data.message.english) {
-            alert(JSON.stringify(error.response.data.message.english));
-          } else {
-            alert(JSON.stringify(error.response.data.message));
-          }
-          // console.log(error.response.data);
-        });
-    };
+    // const handleVerifyTwoFacOTP = (otp) => {
+    //   const nokey = { email: formData.email, password: formData.password };
+    //   let reqBody = {
+    //     ...nokey,
+    //     google_otp: otp,
+    //   };
+    //   console.log('insisde 2fact otp', reqBody);
+    //   axios
+    //     .post('https://www.proassetz.com/api/v1/user-login/', reqBody)
+    //     .then(async function (response) {
+    //       console.log(response);
+    //       const auth = { 
+    //         token: response.data.data.token, // Authentication token
+    //       };
+    //       console.log(auth, 'otpage');
+    //       await AsyncStorage.setItem('auth', JSON.stringify(auth));
+    //       setVerified(true);
+    //       if (raw_secret_key === undefined) { navigation.navigate("FBDScreen") }
+    //     })
+    //     .catch(function (error) {
+    //       // alert(JSON.stringify(error.response.data.message));
+    //       if (error.response.data.message.english) {
+    //         alert(JSON.stringify(error.response.data.message.english));
+    //       } else {
+    //         alert(JSON.stringify(error.response.data.message));
+    //       }
+    //       // console.log(error.response.data);
+    //     });
+    // };
     const renderOTP = () => {
       return (
         <View style={styles.container}>
@@ -189,7 +188,7 @@ import {
             onPress={() => {
               if (otpDone) {
                 // setVerified(true);
-                handleVerifyTwoFacOTP(value);
+               // handleVerifyTwoFacOTP(value);
               } else {
                 alert('OTP invalid');
               }
@@ -207,7 +206,7 @@ import {
             <Text
               style={{
                 fontSize: 20,
-                fontFamily: 'Nunito-SemiBold',
+               
                 textAlign: 'center',
                 textTransform: 'capitalize',
                 color: '#473200',
@@ -234,8 +233,6 @@ import {
                 marginTop: 0,
                 marginBottom: 150,
                 fontSize: 40,
-                fontFamily: 'Monstserrat-Regular',
-                fontWeight: '700',
               }}>
               Verified{' '}
             </Text>
@@ -247,7 +244,7 @@ import {
                 marginVertical: 30,
                 top: -40,
               }}
-              source={require('../../assets/copyshadow.png')}
+              source={require('../../../assets/copyshadow.png')}
               resizeMode="stretch">
               <View
                 style={{
@@ -267,7 +264,7 @@ import {
                 <Button
                   style={{ position: 'absolute', right: '-8%', top: 5, zIndex: 10 }}
                   labelStyle={{ fontSize: 22, lineHeight: 1 }}
-                  onPress={copyToClipboard}
+                  // onPress={copyToClipboard}
                   // contentStyle={{ width: 15, display: 'flex' }}
                   icon="content-copy"
                   color="#6E6E6E"
@@ -288,7 +285,7 @@ import {
               justifyContent: 'center',
             }}>
             <Image
-              source={require('../../assets/back.png')}
+              source={require('../../../assets/back.png')}
               style={{
                 width: '100%',
                 height: 60,
@@ -329,7 +326,6 @@ import {
             <Text
               style={{
                 fontSize: 20,
-                fontFamily: 'Nunito-SemiBold',
                 textAlign: 'center',
                 textTransform: 'capitalize',
                 color: '#473200',
@@ -367,7 +363,7 @@ import {
               color: '#E09D00',
               textAlign: 'center',
               fontSize: 20,
-              fontWeight: '600',
+              
               lineHeight: 30,
             }}>
             2 Factor <Text style={{ color: '#fff' }}>Authentication</Text>

@@ -1,12 +1,40 @@
 import { View, Text,Image,  TouchableOpacity, Pressable } from 'react-native';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { colors } from '../../constants/colors';
 import {  Button } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { PAStyle } from '../../shared/ProAssetzCSS/ProAssetzcss';
+import axios from 'axios';
+import { apiRoutes } from '../../constants/ApiRoutes';
 
 export default function VerifyEmail(props) {
+  console.log('verifyPage',props)
+  const { email , password } = props.route.params.formData;
+  let user ={
+    email:email,
+    password:password
+  }
+
+  let formData=JSON.stringify(user)
   const navigation = useNavigation();
+  const[disabled,setDisabled]=useState(true)
+  const fetchData = () => {
+    console.log('=======>',formData)
+    
+    axios.post(apiRoutes.user_login,formData)
+    .then((res)=>{
+      console.log('verify response',res)
+    })
+    .catch( (error)=> {
+      console.log(error)
+    }
+    )
+  }
+  setTimeout(() => {
+    fetchData();
+  }, 10000);
+  
+  
   return (
     <View style={[PAStyle.outerContainer,PAStyle.width,PAStyle.positionRelative]}>
         <View style={{...PAStyle.backGround,display:'flex',flexDirection: 'row',marginTop:19}}>
@@ -46,11 +74,11 @@ export default function VerifyEmail(props) {
         </Text>
       </View>
       <Button
-        dark={false}
-        style={[PAStyle.Continuebutton,PAStyle.positionAbsolute]}
+        disabled={disabled}
+        style={disabled ? PAStyle.VerifyContinuedisabledButton : PAStyle.VerifyContinuebutton}
         onPress={() => navigation.navigate('LoginScreen')}
         mode="contained">
-        <Text style={{ textAlign: 'center',color:colors.white,  fontSize: 20, }}>Continue</Text>
+        Continue
       </Button>
     </View>
   );

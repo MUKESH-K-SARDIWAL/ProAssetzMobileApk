@@ -91,9 +91,9 @@ function Screen3() {
       </Text>
 
       <Pressable style={PAStyle.button} 
-    //   onPress={() => 
-        // navigation.navigate('CreateAccountScreen')
-        // }
+          onPress={() => 
+            navigation.navigate('CreateAccountScreen')
+            }
         >
         <Text
           style={[PAStyle.getStarted,PAStyle.textAlign]}>

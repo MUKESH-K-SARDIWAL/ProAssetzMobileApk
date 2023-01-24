@@ -9,7 +9,7 @@ export default  function WelcomeSplash(){
   const navigation=useNavigation();
   setTimeout(() => {
     navigation.navigate('NextSplash')
-  }, 1000);
+  }, 5000);
   return (
        <View style={[PAStyle.backGround,PAStyle.flex,PAStyle.positionRelative]}>
            <Image style={PAStyle.logoWidth}

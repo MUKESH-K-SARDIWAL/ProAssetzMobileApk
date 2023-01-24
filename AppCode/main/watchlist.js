@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { Image, View } from 'react-native';
+import { Image, Text, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 import { colors } from '../constants/colors';
@@ -15,7 +15,7 @@ export const MyWatchList= ()=>{
                   source={require('../../assets/backButton.png')}
             />
           </Pressable>
-          <Text style={{...PAStyle.AccountText,marginLeft:25}}>Create an Account</Text>
+          <Text style={{...PAStyle.textAlign,marginLeft:80,color:colors.white,fontSize:25}}>WatchList</Text>
         </View>
         </ScrollView>
     )

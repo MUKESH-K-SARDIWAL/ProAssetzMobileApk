@@ -45,12 +45,12 @@ export const CreateAccountScreen=()=> {
         </View>
         <Formik
           initialValues={{
-            email: 'amkay@gmail.com',
-            first_name: 'mmuu',
-            last_name: 'kkuu',
-            password: '9hsekum9@M',
-            confirm_password: '9hsekum9@M',
-            refferal_code: 'eioe',
+            email: '',
+            first_name: '',
+            last_name: '',
+            password: '',
+            confirm_password: '',
+            refferal_code: '',
           }}
           validationSchema={formSchema}
           onSubmit={(values) => {
@@ -73,7 +73,7 @@ export const CreateAccountScreen=()=> {
                           underlineColor="transparent"
                           activeUnderlineColor="transparent"
                           style={PAStyle.input}
-                          color="#6E6E6E"
+                          textColor="white"
                           value={values.first_name}
                           onChangeText={handleChange('first_name')}
                           onBlur={handleBlur('first_name')}
@@ -96,7 +96,7 @@ export const CreateAccountScreen=()=> {
                     style={PAStyle.input}
                     onChangeText={handleChange('last_name')}
                     onBlur={handleBlur('last_name')}
-                    color="#6E6E6E"
+                    textColor="white"
                     value={values.last_name}
                     label={<StyledText labelText="Last Name" />}
                     placeholder={"  Last Name"}
@@ -115,7 +115,7 @@ export const CreateAccountScreen=()=> {
                     underlineColor="transparent"
                     activeUnderlineColor="transparent"
                     style={PAStyle.input}
-                    color="#fff"
+                    textColor="white"
                     value={values.email}
                     onChangeText={(val) => setFieldValue('email', val.trim())}
                     onBlur={handleBlur('email')}
@@ -136,7 +136,7 @@ export const CreateAccountScreen=()=> {
                     underlineColor="transparent"
                     activeUnderlineColor="transparent"
                     style={PAStyle.input}
-                    color="#fff"
+                    textColor="white"
                     value={values.password}
                     onChangeText={handleChange('password')}
                     onBlur={handleBlur('password')}
@@ -166,7 +166,7 @@ export const CreateAccountScreen=()=> {
                     underlineColor="transparent"
                     activeUnderlineColor="transparent"
                     style={PAStyle.input}
-                    color="#fff"
+                    textColor="white"
                     value={values.password}
                     onChangeText={handleChange('confirm_password')}
                     onBlur={handleBlur('confirm_password')}
@@ -192,7 +192,7 @@ export const CreateAccountScreen=()=> {
                     underlineColor="transparent"
                     activeUnderlineColor="transparent"
                     style={PAStyle.input}
-                    color="#fff"
+                    textColor="white"
                     value={values.refferal_code}
                     onChangeText={handleChange('referral_code')}
                     label={<StyledText labelText="Refferal Code" />}

@@ -14,12 +14,7 @@ import StyledText from '../../shared/StyleText';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 function LoginScreen() {
     const { setUserData } = useContext(AuthContext)
-    const [email, setemail] = useState('')
-    const [pass, setpass] = useState('')
-    const user = {
-        email: email,
-        password: pass,
-        }
+
     const formSchema = yup.object({
         email: yup.string().email('Enter vaild email address').required('Email address Required'),
         password: yup.string().required('Password address Required'),
@@ -34,22 +29,23 @@ function LoginScreen() {
         }
       }
       const handleLogin = (formData) => {
+        
         axios
           .post(apiRoutes.user_login, formData)
           .then(function (response) {
-            //console.log('response ==>', response.data);
+            console.warn('===============********',response)
             if (response?.data?.otp_type == 'google') {
-              user.email = formData.email
-              user.password = formData.password
-              setUserData({ email: formData.email, password: formData.password })
-              storeData();
-                 navigation.navigate('TwoFactorAutheticationScreen', { formData, response });
+
+               setUserData({ email: formData.email, password: formData.password })
+               storeData(formData);
+                 navigation.navigate('TwoFactorAutheticationScreen', {response });
               
             } else if (response.data.otp_type == 'email') {
-               // console.log(response)
-                storeData({ email: formData.email, password: formData.password });
-                    navigation.navigate('EmailAuthenticationScreen', { formData });
-                }
+
+                storeData(formData);
+
+                navigation.navigate('EmailAuthenticationScreen', { formData });
+            }
           })
           .catch(function (error) {
             alert(error)
@@ -67,7 +63,7 @@ function LoginScreen() {
       };
   return (
             <KeyboardAvoidingView style={[PAStyle.flex,PAStyle.backGround]}>
-                {/* <ScrollView> */}
+                <ScrollView>
                     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                         <View style={PAStyle.innerView1}>
                             <Image  
@@ -99,7 +95,7 @@ function LoginScreen() {
                                     underlineColor="transparent"
                                     activeUnderlineColor="transparent"
                                     style={[PAStyle.input, touched.email && errors.email ? { borderWidth: 1, borderColor: '#DC3030' } : {}]}
-                                    color="#fff"
+                                    textColor="#fff"
                                     value={values.email}
                                     onChangeText={(val) => setFieldValue('email', val.trim())}
                                     onBlur={handleBlur('email')}
@@ -118,16 +114,15 @@ function LoginScreen() {
                                     underlineColor="transparent"
                                     activeUnderlineColor="transparent"
                                     style={[PAStyle.input2, touched.password && errors.password ? { borderWidth: 1, borderColor: '#DC3030' } : {}]}
-                                    color="#fff"
+                                    textColor="#fff"
                                     onChangeText={handleChange('password')}
                                     onBlur={handleBlur('password')}
                                     label={<StyledText labelText="Password"/>}
                                     placeholder="Password"
                                     theme={{ colors: { text: '#fff' } }}
-                                    //   onChange={(val) => setval2(val)}
                                     />
                                 </View>
-                                <View style={{width:50,height:50,backgroundColor:colors.grayDark,marginLeft:20,borderRadius:10,marginTop:2}}>
+                                <View style={{width:50,height:50,backgroundColor:colors.grayDark,marginLeft:28,borderRadius:10,marginTop:2}}>
                                     <View >
                                         <Image 
                                         source={require('../../../assets/fingerPrint.png')}
@@ -163,12 +158,16 @@ function LoginScreen() {
                         </View>
                         <View style={PAStyle.innerView3}>
                                     <Text style={[PAStyle.textAlign,PAStyle.alreadyAcct]}>Dont’t have an account ?</Text>
-                                <Pressable>
+                                <Pressable
+                                onPress={()=>{
+                                    navigation.navigate('CreateAccountScreen')
+                                }}
+                                >
                                     <Text style={[PAStyle.login,PAStyle.textAlign]}>Create an Account</Text>
                                 </Pressable>
                         </View>
                     </TouchableWithoutFeedback>
-                {/* </ScrollView> */}
+                </ScrollView>
             </KeyboardAvoidingView>
 
         

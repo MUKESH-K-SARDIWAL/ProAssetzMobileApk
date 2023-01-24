@@ -34,20 +34,11 @@ export const DeclerationScreen = (props) => {
             terms_and_condition: 1,
           })
           .then(function (response) {
-            console.log(response);
-              //navigation.navigate('VerifyEmailScreen', { formData });
+              console.log(response);
+              navigation.navigate('VerifyEmailScreen', { formData });
           })
           .catch(function (error) {
               alert(JSON.stringify(error.response?.data?.message))
-            // if(error.response?.data?.message?.email){
-            //   // alert(JSON.stringify(error.response?.data?.message?.email[0]))
-            //   setSnackMssg(JSON.stringify(error.response?.data?.message?.email[0]))
-            //   onToggleSnackBar();
-            // }else{
-              
-            //   setSnackMssg("Somethings went wrong....")
-            //   onToggleSnackBar();
-            // }
           });
       };  
   return (
