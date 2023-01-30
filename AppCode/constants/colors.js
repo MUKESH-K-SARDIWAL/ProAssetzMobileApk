@@ -20,6 +20,7 @@ export const colors = {
     lightDark: 'rgba(110, 110, 110, 1)',
     redColor: 'rgba(255, 84, 94, 1)',
     lightgreen: "#38B781",
-    lightred: "#FF545E"
+    lightred: "#FF545E",
+    headingColor: '#B3B3B3'
   };
   

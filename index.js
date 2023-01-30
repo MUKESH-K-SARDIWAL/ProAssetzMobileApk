@@ -26,6 +26,7 @@ import {TwoFactorAuthQR} from './AppCode/authentication/Two-Factor-Authenticatio
 import { Home } from './AppCode/main/Home';
 import { MyWatchList } from './AppCode/main/watchlist';
 import TwoFactorOTP from './AppCode/authentication/Two-Factor-Authentication/TwoFactorOtpVerify';
+import TextDatePicker from './AppCode/authentication/textDatePicker';
 
 const Stack=createNativeStackNavigator()
 
@@ -58,7 +59,7 @@ export default function FirstPage(){
                         />
                         
                         */}
-                        <Stack.Screen
+                        {/* <Stack.Screen
                             name="CreateAccountScreen"
                             component={CreateAccountScreen}
                             options={{ headerShown: false }}
@@ -72,7 +73,7 @@ export default function FirstPage(){
                             name='VerifyEmailScreen'
                             component={VerifyEmail}
                             options={{ headerShown: false }}
-                        /> 
+                        />  */}
                         {/*<Stack.Screen
                             name='KYCWelcomeScreen'
                             component={KYCWelcome}
@@ -118,11 +119,12 @@ export default function FirstPage(){
                              component={Home}
                              options={{ headerShown: false }}
                          /> */}
-                         {/* <Stack.Screen
+                         <Stack.Screen
                              name='WatchListScreen'
                              component={MyWatchList}
                              options={{ headerShown: false }}
-                         /> */}
+                         />
+                         
                     </Stack.Navigator>
                 </NavigationContainer>
             </PaperProvider>

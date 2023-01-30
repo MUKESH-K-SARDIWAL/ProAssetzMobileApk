@@ -5,10 +5,11 @@ import { PAStyle } from '../../shared/ProAssetzCSS/ProAssetzcss';
 // import { LoadingEffect } from '../loadingEffect/LoadingStart';
 
 
-export default  function WelcomeSplash(){
+export default  function WelcomeSplash(props){
+  console.log(props)
   const navigation=useNavigation();
   setTimeout(() => {
-    navigation.navigate('NextSplash')
+    props.navigation.navigate('NextSplash')
   }, 5000);
   return (
        <View style={[PAStyle.backGround,PAStyle.flex,PAStyle.positionRelative]}>

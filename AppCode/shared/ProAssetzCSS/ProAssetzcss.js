@@ -582,6 +582,17 @@ export const PAStyle= StyleSheet.create({
   fontStyle:{ 
       fontSize: 12,  color: '#878787' }
  ,boxStyle:{
-   flexDirection: 'row', marginHorizontal: 8, alignItems: 'center', justifyContent: 'space-between', marginTop: 14 }
+   flexDirection: 'row', marginHorizontal: 8, alignItems: 'center', justifyContent: 'space-between', marginTop: 14 },
+  portFolioalign:{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginHorizontal: '4%', marginTop: 10 },
+  portFolioBox:{
+    backgroundColor: '#0B0B0B', borderRadius: 6, width: 140, height: 65, paddingTop: 10, shadowColor: "#B3B3B3",
+    shadowOffset: {
+        width: 0,
+        height: 2,
+    },
+    shadowOpacity: 0.23,
+    shadowRadius: 2.62,
+    elevation: 4,
+} 
 
 })
