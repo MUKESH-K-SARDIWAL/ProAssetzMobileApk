@@ -132,7 +132,7 @@ const BtcModal = ({ close }) => {
         <View style={{ marginVertical: 8 }}>
           <View style={{ flexDirection: 'row', marginHorizontal: 8, alignItems: 'center', justifyContent: 'space-between', marginTop: 16, height: 1, backgroundColor: '#FFA629' }}>
             {ButtonPercentage.map((item, index) => (
-              <TouchableOpacity style={[{ width: 12, height: 12, backgroundColor: '#FFA629', borderRadius: 8, }, percentSelected == index && { width: 16, height: 16, borderRadius: 8, backgroundColor: '#FFF6E0', alignItems: 'center', justifyContent: 'center' }]} activeOpacity={0.6} onPress={() => { setpercentSelected(index) }}>
+              <TouchableOpacity style={[{ width: 12, height: 12, backgroundColor: '#FFA629', borderRadius: 8, }, percentSelected == index && { width: 16, height: 16, borderRadius: 8, backgroundColor: '#FFF6E0', alignItems: 'center', justifyContent: 'center' }]} activeOpacity={0.6} onPress={() => { setpercentSelected(index) }} key={item.id}>
                 <View style={{ backgroundColor: '#FFA629', borderRadius: 6, width: 10, height: 10 }} />
               </TouchableOpacity>
             ))}

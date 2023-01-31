@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {AppRegistry, StatusBar} from 'react-native';
 import App from './App';
+import { Provider as PaperProvider } from 'react-native-paper';
 import {name as appName} from './app.json';
 import BankDetailsConfirm from './AppCode/authentication/BankDetail/BankDetailForm';
 import FillBankDetail from './AppCode/authentication/BankDetail/FillDetail';
@@ -19,7 +20,7 @@ import TextDatePicer from './AppCode/authentication/KYC/text';
 import LoginScreen from './AppCode/authentication/LoginPage/userLogin';
 import  WelcomeSplash  from './AppCode/authentication/SplashScreen/Splash';
 import { colors } from './AppCode/constants/colors';
-import { Provider as PaperProvider } from 'react-native-paper';
+
 import { BankDocumentUpload } from './AppCode/authentication/BankDetail/BankDetailUpload';
 import TwoFactorAuth from './AppCode/authentication/Two-Factor-Authentication/firstPage';
 import {TwoFactorAuthQR} from './AppCode/authentication/Two-Factor-Authentication/twoFactorQR';
@@ -27,6 +28,7 @@ import { Home } from './AppCode/main/Home';
 import { MyWatchList } from './AppCode/main/watchlist';
 import TwoFactorOTP from './AppCode/authentication/Two-Factor-Authentication/TwoFactorOtpVerify';
 import TextDatePicker from './AppCode/authentication/textDatePicker';
+import Trademain from './AppCode/main/TradeScreen/Trademain';
 
 const Stack=createNativeStackNavigator()
 
@@ -119,9 +121,14 @@ export default function FirstPage(){
                              component={Home}
                              options={{ headerShown: false }}
                          /> */}
-                         <Stack.Screen
+                         {/* <Stack.Screen
                              name='WatchListScreen'
                              component={MyWatchList}
+                             options={{ headerShown: false }}
+                         /> */}
+                         <Stack.Screen
+                             name='TradeMainScreen'
+                             component={Trademain}
                              options={{ headerShown: false }}
                          />
                          
