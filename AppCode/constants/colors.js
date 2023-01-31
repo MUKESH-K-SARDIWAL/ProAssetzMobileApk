@@ -21,6 +21,8 @@ export const colors = {
     redColor: 'rgba(255, 84, 94, 1)',
     lightgreen: "#38B781",
     lightred: "#FF545E",
-    headingColor: '#B3B3B3'
+    headingColor: '#B3B3B3',
+    purple:'#38B781',
+    
   };
   

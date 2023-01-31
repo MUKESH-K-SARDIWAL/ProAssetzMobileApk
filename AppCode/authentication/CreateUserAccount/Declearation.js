@@ -171,9 +171,9 @@ export const DeclerationScreen = (props) => {
                             </View>                
             </View>
         <Button
-        disabled={disabled}
+        // disabled={disabled}
         dark={false}
-        style={disabled ? PAStyle.AcceptdisabledButton : PAStyle.Acceptbutton}
+        // style={disabled ? PAStyle.AcceptdisabledButton : PAStyle.Acceptbutton}
         onPress={handleAccept}
         mode="contained">
         <Text

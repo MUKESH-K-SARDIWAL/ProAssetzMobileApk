@@ -74,7 +74,7 @@ export default function VerifyEmail(props) {
         </Text>
       </View>
       <Button
-        disabled={disabled}
+        // disabled={disabled}
         style={disabled ? PAStyle.VerifyContinuedisabledButton : PAStyle.VerifyContinuebutton}
         onPress={() => navigation.navigate('LoginScreen')}
         mode="contained">
