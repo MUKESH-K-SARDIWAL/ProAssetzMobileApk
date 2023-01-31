@@ -130,8 +130,7 @@ export default function FirstPage(){
                              name='TradeMainScreen'
                              component={Trademain}
                              options={{ headerShown: false }}
-                         />
-                         
+                         />                         
                     </Stack.Navigator>
                 </NavigationContainer>
             </PaperProvider>
