@@ -29,6 +29,8 @@ import { MyWatchList } from './AppCode/main/watchlist';
 import TwoFactorOTP from './AppCode/authentication/Two-Factor-Authentication/TwoFactorOtpVerify';
 import TextDatePicker from './AppCode/authentication/textDatePicker';
 import Trademain from './AppCode/main/TradeScreen/Trademain';
+import TradeCard from './AppCode/main/TradeScreen/TradeCard';
+import Chart from './AppCode/main/chartScreen/Chart';
 
 const Stack=createNativeStackNavigator()
 
@@ -130,7 +132,17 @@ export default function FirstPage(){
                              name='TradeMainScreen'
                              component={Trademain}
                              options={{ headerShown: false }}
-                         />                         
+                         />
+                         <Stack.Screen
+                             name='ChartScreen'
+                             component={Chart}
+                             options={{ headerShown: false }}
+                         />     
+                          {/* <Stack.Screen
+                             name='TradeScreen'
+                             component={TradeCard}
+                             options={{ headerShown: false }}
+                         />                      */}
                     </Stack.Navigator>
                 </NavigationContainer>
             </PaperProvider>

@@ -593,6 +593,33 @@ export const PAStyle= StyleSheet.create({
     shadowOpacity: 0.23,
     shadowRadius: 2.62,
     elevation: 4,
-} 
+} ,
+btnOuterContainer:{
+  flexDirection: "row",
+  width: "90%",
+  alignSelf: "center",
+  justifyContent: "center",
+  backgroundColor: '#2C2B2B',
+  borderRadius: 5,
+  marginTop: 16,
+}
+, btntxt: {
+  
+  fontSize: 14,
+  color: colors.white,
+},
+btnbox: {
+  alignItems: "center",
+  paddingVertical: 10,
+  borderRadius: 5,
+},
+innerHeader:{ flexDirection: 'row', width: '86%', alignSelf: 'center', justifyContent: 'space-between', alignItems: 'center', marginTop: 16 },
+shadow: {
+  shadowColor: 'white',
+  // shadowOffset: {width: 10, height: 10},
+  shadowOpacity: 0.6,
+  shadowRadius: 6,
+  elevation:10
+},
 
 })

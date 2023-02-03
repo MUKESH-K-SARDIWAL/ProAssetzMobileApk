@@ -40,8 +40,7 @@ const DropDown = (props) => {
       dropDownContainerStyle={{
         backgroundColor: "white",
         position:'absolute',
-        zIndex: 1000,
-        elevation: Platform.OS === "android" ? 50 : 0,
+        elevation: Platform.OS === "android" ? 100 : 0,
       }}
       listItemLabelStyle={{
         color: "#B3B3B3",

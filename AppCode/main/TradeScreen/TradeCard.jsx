@@ -1,17 +1,19 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { colors } from '../../constants/colors';
+import { Card } from 'react-native-paper';
+import { PAStyle } from '../../shared/ProAssetzCSS/ProAssetzcss';
 
 const TradeCard = ({ high24hr,
                      total24hrVolume,
-                    //  ltp_in_usd,
+                     ltp_in_usd,
                      low24hr,
                      Change24hr,
                      change_amount }) => 
                 {
 
                 return (
-                    <View style={styles.Card}>
+                    <View style={{...styles.Card,zIndex:-1}}>
                     <View>
                         <Text style={[styles.Headingtxt]}>
                         Current Price
