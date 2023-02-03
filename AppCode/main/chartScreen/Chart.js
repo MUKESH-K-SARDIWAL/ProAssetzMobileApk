@@ -8,15 +8,12 @@ import ButtonPageNavBar from '../TradeScreen/ButtonPageNavBar'
 import { colors } from '../../constants/colors'
 import { Pressable,Image } from 'react-native'
 import { ScrollView } from 'react-native'
-// import { createChart, CrosshairMode } from "lightweight-charts";
-// import LineChart from 'react-native-responsive-linechart'
-
-
-
-
-const Chart = () => {
+import { LineChart } from "react-native-gifted-charts";
+import { priceData } from './priceData'
+import { volumeData } from './volumeData'
+const ChartPage = () => {
     
-
+    const lineData = [{value: 0},{value: 20},{value: 18},{value: 40},{value: 36},{value: 60},{value: 54},{value: 85}]
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState(1);
     const [items, setItems] = useState([
@@ -67,6 +64,26 @@ const Chart = () => {
                 
 
       </ScrollView>
+           <LineChart
+                initialSpacing={0}
+                data={volumeData}
+                color={colors.darkOrange}
+                colorNegative="red"
+                startFillColor={colors.darkOrange}
+                startFillColorNegative="red"
+                spacing={15}
+                areaChart
+                startOpacity={0.8}
+                thickness={2}
+                // hideRules
+                dataPointsColor={'green'}
+               
+                yAxisColor={colors.darkOrange}
+                // showVerticalLines
+                // yAxisOffset={1000}
+                verticalLinesColor={colors.darkOrange}
+                xAxisColor={colors.darkOrange}
+            />
       <ButtonPageNavBar index={1}/>
     </View>
     )
@@ -74,4 +91,4 @@ const Chart = () => {
 
 
 
-export default Chart
+export default ChartPage

@@ -30,7 +30,7 @@ import TwoFactorOTP from './AppCode/authentication/Two-Factor-Authentication/Two
 import TextDatePicker from './AppCode/authentication/textDatePicker';
 import Trademain from './AppCode/main/TradeScreen/Trademain';
 import TradeCard from './AppCode/main/TradeScreen/TradeCard';
-import Chart from './AppCode/main/chartScreen/Chart';
+import ChartPage from './AppCode/main/chartScreen/Chart';
 
 const Stack=createNativeStackNavigator()
 
@@ -135,9 +135,10 @@ export default function FirstPage(){
                          />
                          <Stack.Screen
                              name='ChartScreen'
-                             component={Chart}
+                             component={ChartPage}
                              options={{ headerShown: false }}
-                         />     
+                         />
+                              
                           {/* <Stack.Screen
                              name='TradeScreen'
                              component={TradeCard}
